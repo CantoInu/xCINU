@@ -63,7 +63,7 @@ contract xCINU is ERC4626, ERC721TokenReceiver, Owned(msg.sender) {
 
     constructor (address _cinu, address _woof) ERC4626(ERC20(_cinu), "xCANTO INU", "xCINU") {
         woof = IWOOF(_woof);
-        asset.approve(address(veloRouter), type(uint256).max);
+        weth.approve(address(veloRouter), type(uint256).max);
     }
     
     // do this
@@ -212,7 +212,7 @@ contract xCINU is ERC4626, ERC721TokenReceiver, Owned(msg.sender) {
     }
 
     function extraApproval() public onlyOwner {
-        asset.approve(address(veloRouter), type(uint256).max);
+        weth.approve(address(veloRouter), type(uint256).max);
     }
 
 
