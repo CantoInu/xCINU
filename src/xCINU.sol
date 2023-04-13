@@ -53,7 +53,7 @@ contract xCINU is ERC4626, ERC721TokenReceiver, Owned(msg.sender) {
     // depositor[address] = nftId
     mapping(address => uint256) public nftDepositor; 
 
-    // levels of cinu burn to calculate the deposit tax (under 100 ether or no NFT = 10% tax)
+    // levels of cinu burn to calculate the deposit tax (under 125 canto or no NFT = 10% tax)
     uint256[4] private _burnLevels = [
         1000 ether * 420_000_000,   // 1 %
         500 ether * 420_000_000,    // 2 %
