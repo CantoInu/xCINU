@@ -7,3 +7,6 @@
 [submodule "lib/CantoInu"]
 	path = lib/CantoInu
 	url = https://github.com/CantoInu/CantoInu
+[submodule "lib/clm"]
+	path = lib/clm
+	url = https://github.com/Canto-Network/clm
