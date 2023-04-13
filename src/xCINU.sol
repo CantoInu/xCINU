@@ -7,6 +7,11 @@ import {Owned} from "solmate/auth/Owned.sol";
 import {Comptroller, CToken} from "clm/Comptroller.sol";
 import {WETH} from "clm/WETH.sol";
 
+// turnstile address: 0xEcf044C5B4b867CFda001101c617eCd347095B44
+interface ITurnstile {
+    function register(address) external returns(uint256);
+}
+
 interface IWOOF {
     function getCInuBurnt(uint256 tokenId) external view returns (uint256);
     function balanceOf(address owner) external view returns (uint256 balance);
@@ -64,6 +69,7 @@ contract xCINU is ERC4626, ERC721TokenReceiver, Owned(msg.sender) {
     constructor (address _cinu, address _woof) ERC4626(ERC20(_cinu), "xCANTO INU", "xCINU") {
         woof = IWOOF(_woof);
         weth.approve(address(veloRouter), type(uint256).max);
+        if(block.chainid == 7700) ITurnstile(0xEcf044C5B4b867CFda001101c617eCd347095B44).register(msg.sender);
     }
     
     // do this
